@@ -24,4 +24,7 @@ export default defineConfig({
       crypto: 'vite-plugin-node-polyfills/shims/crypto',
     },
   },
+  build: {
+    target: ['esnext'],  // 或者直接用 es2022 或更高
+  },
 });
