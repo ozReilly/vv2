@@ -1,12 +1,14 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
-import {reactive} from 'vue'
+import { reactive } from 'vue'
 
-import {init} from './tools'
+import { init } from './tools'
 const state = reactive({
-  mnoc:'',
-  btcoin:null,
-  eth:null
+  mnoc: '',
+  btcoin: null,
+  eth: null,
+  tron: null,
+  xrpl: null
 })
 const btnhandle = () => {
   console.log('btnhandlebtnhandlebtnhandlebtnhandle----');
@@ -14,7 +16,9 @@ const btnhandle = () => {
   state.btcoin = res?.btc
   state.mnoc = res?.btc?.mnoc
   state.eth = res?.eth
-  console.log('btnhandlebtnhandlebtnhandlebend----',res);
+  state.tron = res?.tron
+  state.xrpl = res?.xrpl
+  console.log('btnhandlebtnhandlebtnhandlebend----', res);
 }
 </script>
 
@@ -28,24 +32,124 @@ const btnhandle = () => {
     </a>
   </div>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
-   <button @click="btnhandle">test init btcoin、eth</button>
-   <div>我的助记词呢: {{ state.mnoc }}</div>
-   <div>btc信息: {{ state.btcoin }}</div>
-   <hr>
-   <div>eth信息: {{ state.eth }}</div>
+  <button @click="btnhandle">test init btcoin、eth</button>
+  <div>我的助记词呢: {{ state.mnoc }}</div>
+
+  <table v-if="state?.btcoin">
+    <thead>
+      <td :colspan="Object.keys(state?.btcoin).length">
+        eth信息:
+      </td>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state?.btcoin)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state?.btcoin)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-if="state?.eth">
+    <thead>
+      <td :colspan="Object.keys(state?.eth).length">
+        eth信息:
+      </td>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state?.eth)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state?.eth)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-if="state?.tron">
+    <thead>
+      <td :colspan="Object.keys(state?.tron).length">
+        tron信息:
+      </td>
+
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state?.tron)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state?.tron)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-if="state?.xrpl">
+    <thead>
+      <td :colspan="Object.keys(state?.xrpl).length">
+        xrpl信息:
+      </td>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state?.xrpl)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state?.xrpl)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+
+  thead {
+    background-color: aqua;
+    color:#000;
+    font-weight: 900;
+  }
+
+  td {
+    border: 1px solid #DDD;
+    word-break: break-all;
+    padding:10px;
+  }
+
+  tr {
+    &:nth-child(even){
+      background-color:chartreuse;
+    }
+    &::nth-child(odd){
+      background-color: beige;
+    }
+  }
 }
 </style>
