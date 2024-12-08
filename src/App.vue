@@ -8,7 +8,9 @@ const state = reactive({
   btcoin: null,
   eth: null,
   tron: null,
-  xrpl: null
+  xrpl: null,
+  nervos: null,
+  Polkadot:null,
 })
 const btnhandle = () => {
   console.log('btnhandlebtnhandlebtnhandlebtnhandle----');
@@ -18,6 +20,8 @@ const btnhandle = () => {
   state.eth = res?.eth
   state.tron = res?.tron
   state.xrpl = res?.xrpl
+  state.nervos = res?.nervos
+  state.Polkadot = res?.Polkadot
   console.log('btnhandlebtnhandlebtnhandlebend----', res);
 }
 </script>
@@ -114,7 +118,46 @@ const btnhandle = () => {
       </tr>
     </tbody>
   </table>
+  
+  <table v-if="state.nervos">
+    <thead>
+      <tr>
+        <td :colspan="Object.keys(state.nervos).length">
+         nervos信息:
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state.nervos)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state.nervos)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
 
+  <table v-if="state.Polkadot">
+    <thead>
+      <tr>
+        <td :colspan="Object.keys(state.Polkadot).length">
+          Polkadot信息:
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state.Polkadot)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state.Polkadot)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <style scoped lang="scss">

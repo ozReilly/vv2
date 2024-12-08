@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckb-lumos/lumos": "^0.23.0",
+    "@polkadot/util-crypto": "^13.2.3",
     "bip32": "^5.0.0-rc.0",
     "bitcoinjs-lib": "^6.1.7",
     "ethers": "^6.13.4",
@@ -25,5 +27,5 @@
     "vite-plugin-node-polyfills": "^0.22.0",
     "vite-plugin-wasm": "^3.3.0"
   },
-   "license": "Apache-2.0"
+  "license": "Apache-2.0"
 }
