@@ -34,12 +34,13 @@ const btnhandle = () => {
   <!-- <HelloWorld msg="Vite + Vue" /> -->
   <button @click="btnhandle">test init btcoin、eth</button>
   <div>我的助记词呢: {{ state.mnoc }}</div>
-
-  <table v-if="state?.btcoin">
+  <table v-if="state.btcoin">
     <thead>
-      <td :colspan="Object.keys(state?.btcoin).length">
-        eth信息:
-      </td>
+      <tr>
+        <td :colspan="Object.keys(state?.btcoin).length">
+          btc信息:
+        </td>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -53,11 +54,13 @@ const btnhandle = () => {
     </tbody>
   </table>
 
-  <table v-if="state?.eth">
+  <table v-if="state.eth">
     <thead>
-      <td :colspan="Object.keys(state?.eth).length">
-        eth信息:
-      </td>
+      <tr>
+        <td :colspan="Object.keys(state?.eth).length">
+          eth信息:
+        </td>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -71,11 +74,13 @@ const btnhandle = () => {
     </tbody>
   </table>
 
-  <table v-if="state?.tron">
+  <table v-if="state.tron">
     <thead>
-      <td :colspan="Object.keys(state?.tron).length">
-        tron信息:
-      </td>
+      <tr>
+        <td :colspan="Object.keys(state?.tron).length">
+          tron信息:
+        </td>
+      </tr>
 
     </thead>
     <tbody>
@@ -90,11 +95,13 @@ const btnhandle = () => {
     </tbody>
   </table>
 
-  <table v-if="state?.xrpl">
+  <table v-if="state.xrpl">
     <thead>
-      <td :colspan="Object.keys(state?.xrpl).length">
-        xrpl信息:
-      </td>
+      <tr>
+        <td :colspan="Object.keys(state?.xrpl).length">
+          xrpl信息:
+        </td>
+      </tr>
     </thead>
     <tbody>
       <tr>
@@ -133,21 +140,22 @@ table {
 
   thead {
     background-color: aqua;
-    color:#000;
+    color: #000;
     font-weight: 900;
   }
 
   td {
     border: 1px solid #DDD;
     word-break: break-all;
-    padding:10px;
+    padding: 10px;
   }
 
   tr {
-    &:nth-child(even){
-      background-color:chartreuse;
+    &:nth-child(even) {
+      background-color: chartreuse;
     }
-    &::nth-child(odd){
+
+    &::nth-child(odd) {
       background-color: beige;
     }
   }
