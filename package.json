@@ -1,0 +1,21 @@
+{
+  "name": "vv",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ethers": "^6.13.4",
+    "global": "^4.4.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "5.0.0",
+    "vite-plugin-node-polyfills": "^0.22.0"
+  }
+}
