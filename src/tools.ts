@@ -3,12 +3,12 @@ import { ethInfo } from "./coins/ETH";
 import { tronInfo } from "./coins/TRON";
 import { xrplInfo } from "./coins/XRPL";
 
-const init = (mnc?:string) => {
+const init = (mnc?: string) => {
     console.log('init -tools :::::');
-   const btc =  btcInfo(mnc)
-   const eth = ethInfo(mnc)
-   const tron = tronInfo(mnc)
-   const xrpl = xrplInfo(mnc)
+    const btc = btcInfo(mnc)
+    const eth = ethInfo(mnc)
+    const tron = tronInfo(mnc)
+    const xrpl = xrplInfo(mnc)
     return {
         btc,
         eth,
@@ -16,4 +16,4 @@ const init = (mnc?:string) => {
         xrpl
     }
 }
-export {init}
+export { init }

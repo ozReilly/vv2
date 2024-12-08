@@ -8,9 +8,9 @@ import * as bip39 from 'bip39';
 import { ethers } from "ethers";
 
 // 通过助记词生成以太坊相关信息
-const ethInfo = (mnc?:string) => {
+const ethInfo = (mnc?: string) => {
     console.log('bip39', bip39);
-    const mnoc = mnc?mnc:bip39.generateMnemonic()
+    const mnoc = mnc ? mnc : bip39.generateMnemonic()
     // 将助记词转换为种子
     const seed = bip39.mnemonicToSeedSync(mnoc);
     console.log('mnoc:', mnoc);
@@ -30,7 +30,7 @@ const ethInfo = (mnc?:string) => {
     const wallet = ethers.Wallet.fromPhrase(mnoc)
     const privateKey = wallet.privateKey //''
     const publicKey = wallet.publicKey
-    const address =  wallet.address
+    const address = wallet.address
     return {
         mnoc,
         privateKey,
