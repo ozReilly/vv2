@@ -11,7 +11,7 @@ import {
 } from '@polkadot/util-crypto';
 
 
-const PolkadotInfo = (mnc?: string) => {
+const KusamaInfo = (mnc?: string) => {
   // 从助记词生成种子
   const mnoc = mnc ? mnc : bip39.generateMnemonic()
   const mnemonicAlice = mnemonicGenerate();
@@ -22,10 +22,10 @@ const PolkadotInfo = (mnc?: string) => {
   console.log(`isValidMnemonic: ${isValidMnemonic}`);
   // 通过助记词生成种子
   const seedAlice = mnemonicToMiniSecret(mnoc);
-  const keypair = ed25519PairFromSeed(seedAlice);
+  const keypair = ed25519PairFromSeed(seedAlice);;
   const publicKey = Buffer.from(keypair.publicKey).toString('hex');
-  const privateKey = Buffer.from(keypair.secretKey).toString('hex');
-  const address = encodeAddress(keypair.publicKey, 0);
+  const privateKey =  Buffer.from(keypair.secretKey).toString('hex');
+  const address = encodeAddress(keypair.publicKey,2);
 
   return {
     mnoc,
@@ -34,4 +34,4 @@ const PolkadotInfo = (mnc?: string) => {
     address
   }
 }
-export { PolkadotInfo }
+export { KusamaInfo }

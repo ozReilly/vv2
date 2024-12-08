@@ -11,10 +11,12 @@ const state = reactive({
   xrpl: null,
   nervos: null,
   Polkadot:null,
+  Kusama:null,
+  Cosmos:null,
 })
-const btnhandle = () => {
+const btnhandle = async () => {
   console.log('btnhandlebtnhandlebtnhandlebtnhandle----');
-  const res = init(state.mnoc)
+  const res = await init(state.mnoc)
   state.btcoin = res?.btc
   state.mnoc = res?.btc?.mnoc
   state.eth = res?.eth
@@ -22,6 +24,8 @@ const btnhandle = () => {
   state.xrpl = res?.xrpl
   state.nervos = res?.nervos
   state.Polkadot = res?.Polkadot
+  state.Kusama = res?.Kusama
+  state.Cosmos = res?.Cosmos
   console.log('btnhandlebtnhandlebtnhandlebend----', res);
 }
 </script>
@@ -158,6 +162,46 @@ const btnhandle = () => {
       </tr>
     </tbody>
   </table>
+  <table v-if="state.Kusama">
+    <thead>
+      <tr>
+        <td :colspan="Object.keys(state.Kusama).length">
+          Kusama信息:
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state.Kusama)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state.Kusama)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table v-if="state.Cosmos">
+    <thead>
+      <tr>
+        <td :colspan="Object.keys(state.Cosmos).length">
+          Cosmos信息:
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td v-for="item in Object.keys(state.Cosmos)" :key="item">
+          {{ item }}
+        </td>
+      </tr>
+      <tr>
+        <td v-for="item in Object.values(state.Cosmos)" :key="item">{{ item }}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </template>
 
 <style scoped lang="scss">
